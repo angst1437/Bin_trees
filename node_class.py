@@ -1,14 +1,12 @@
 class Node:
-    def __init__(self, value, key=None):
+    def __init__(self, key):
         """
             Создание ноды(вершины) дерева. При создании у нее есть:
                 Уникальный ключ
-                Не уникальное значение
                 Указатели на детей, родителя.
             Обязательно при создании указывать только значение
         """
         self.key = key
-        self.value = value
         self.parent = None
         self.right_child = None
         self.left_child = None
@@ -32,19 +30,12 @@ class Node:
     def get_key(self) -> int:
         return self.key
 
-    def get_value(self) -> int:
-        return self.value
-
-
     def set_key(self, key) -> None:
         self.key = key
 
-    def set_value(self, value) -> None:
-        self.value = value
-
     def set_parent(self, parent) -> None:
         self.parent = parent
-        if self.value >= parent.value:
+        if self.key >= parent.key:
             parent.right_child = self
         else:
             parent.left_child = self
